@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 interface PokeListResponse{
   created: string,
@@ -13,7 +14,7 @@ interface PokeListResponse{
   providedIn: 'root'
 })
 export class PokeapiService {
-  private url = '//dev.treinaweb.com.br/pokeapi/';
+  private url = 'https://dev.treinaweb.com.br/pokeapi/';
   pokeList = [];
 
   constructor(
@@ -32,6 +33,11 @@ export class PokeapiService {
             .slice(0,9);
         }
       )
+  }
+
+
+  getPokemon(number: number): Observable<any> {
+    return this.http.get(`${this.url}/pokemon/${number}`);
   }
 
   private getNumberFromUrl(url){

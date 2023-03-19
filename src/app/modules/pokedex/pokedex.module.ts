@@ -1,3 +1,4 @@
+import { InformationComponent } from './views/information/information.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +11,8 @@ import { MyNumberPipe } from '../../pipes/my-number.pipe';
 
 const CompList = [
   ListItemComponent,
-  ListComponent
+  ListComponent,
+  InformationComponent
 ];
 
 @NgModule({
